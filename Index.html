@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Chocadeiras</title>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { background: #333; color: #fff; padding: 1rem; text-align: center; }
+        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; }
+        nav ul li { margin: 0 1rem; }
+        nav ul li a { color: #fff; text-decoration: none; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { margin-top: 0; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .product { background: #fafafa; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .product img { width: 100%; max-width: 200px; border-radius: 8px; }
+        .price { color: green; font-weight: bold; margin: 0.5rem 0; }
+        .btn { background: #28a745; color: #fff; padding: 0.5rem 1rem; text-decoration: none; border-radius: 5px; cursor: pointer; display: inline-block; margin-top: 0.5rem; }
+        .btn:hover { background: #218838; }
+        footer { background: #333; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Loja de Chocadeiras Elétricas</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#chocadeiras">Chocadeiras</a></li>
+                <li><a href="#acessorios">Acessórios</a></li>
+            </ul>
+        </nav>
+    </header><div class="container" id="chocadeiras">
+    <h2>Modelos de Chocadeiras</h2>
+    <div class="product-grid">
+        <div class="product">
+            <img src="https://i.imgur.com/abc1234.jpg" alt="Chocadeira Smart 120 WIFI">
+            <h3>Chocadeira Smart 120 WIFI</h3>
+            <p class="price">R$ 650,00</p>
+            <button class="btn" onclick="iniciarPagamento('Chocadeira Smart 120 WIFI', 650)">Comprar</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/def5678.jpg" alt="Chocadeira Smart 80 WIFI">
+            <h3>Chocadeira Smart 80 WIFI</h3>
+            <p class="price">R$ 580,00</p>
+            <button class="btn" onclick="iniciarPagamento('Chocadeira Smart 80 WIFI', 580)">Comprar</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/ghi9012.jpg" alt="Chocadeira Automática 80">
+            <h3>Chocadeira Automática 80</h3>
+            <p class="price">R$ 500,00</p>
+            <button class="btn" onclick="iniciarPagamento('Chocadeira Automática 80', 500)">Comprar</button>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="acessorios">
+    <h2>Acessórios</h2>
+    <div class="product-grid">
+        <div class="product">
+            <img src="https://i.imgur.com/jkl3456.jpg" alt="Bandeja Universal">
+            <h3>Bandeja Universal</h3>
+            <p class="price">R$ 80,00</p>
+            <button class="btn" onclick="iniciarPagamento('Bandeja Universal', 80)">Comprar</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/mno7890.jpg" alt="Higrômetro Digital">
+            <h3>Higrômetro Digital</h3>
+            <p class="price">R$ 60,00</p>
+            <button class="btn" onclick="iniciarPagamento('Higrômetro Digital', 60)">Comprar</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/pqr1234.jpg" alt="Kit Resistência e Ventoinha">
+            <h3>Kit Resistência e Ventoinha</h3>
+            <p class="price">R$ 120,00</p>
+            <button class="btn" onclick="iniciarPagamento('Kit Resistência e Ventoinha', 120)">Comprar</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Loja de Chocadeiras - Todos os direitos reservados</p>
+</footer>
+
+<script>
+    const mp = new MercadoPago('SUA_PUBLIC_KEY', { locale: 'pt-BR' });
+
+    function iniciarPagamento(produto, valor) {
+        alert(`Processando pagamento de ${produto} no valor de R$ ${valor} via Mercado Pago (Pix ou Cartão Parcelado).`);
+    }
+</script>
+
+</body>
+</html>
